@@ -1,6 +1,6 @@
-"use client"
-import React, { useState } from 'react';
-import Link from 'next/link';
+"use client";
+import React, { useState } from "react";
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,6 +59,21 @@ const Navbar: React.FC = () => {
             <Link href="/">
               <span className="text-white hover:bg-purple-700 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">
                 Home
+              </span>
+            </Link>
+            <Link href="/about">
+              <span className="text-white hover:bg-purple-700 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">
+                About
+              </span>
+            </Link>
+            <Link href="/alldoctors">
+              <span className="text-white hover:bg-purple-700 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">
+                All Doctors
+              </span>
+            </Link>
+            <Link href="/contact">
+              <span className="text-white hover:bg-purple-700 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">
+                Contact Us
               </span>
             </Link>
             <Link href="/register">

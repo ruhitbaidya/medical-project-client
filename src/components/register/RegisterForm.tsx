@@ -1,6 +1,6 @@
-"use client"
-import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+"use client";
+import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 type FormInputs = {
   fullName: string;
@@ -20,11 +20,11 @@ const RegisterForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<FormInputs> = (data) => {
     console.log(data);
-    alert('Registration successful!');
+    alert("Registration successful!");
   };
 
   // Watch the password field to compare with confirmPassword
-  const password = watch('password');
+  const password = watch("password");
 
   return (
     <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
@@ -39,39 +39,49 @@ const RegisterForm: React.FC = () => {
           {/* Full Name and Email (Side by Side on Large Devices) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="fullName"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Full Name
               </label>
               <input
                 id="fullName"
                 type="text"
-                {...register('fullName', { required: 'Full name is required' })}
+                {...register("fullName", { required: "Full name is required" })}
                 placeholder="Enter your full name"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
               {errors.fullName && (
-                <p className="text-red-500 text-sm mt-1">{errors.fullName.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.fullName.message}
+                </p>
               )}
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Email
               </label>
               <input
                 id="email"
                 type="email"
-                {...register('email', {
-                  required: 'Email is required',
+                {...register("email", {
+                  required: "Email is required",
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: 'Invalid email address',
+                    message: "Invalid email address",
                   },
                 })}
                 placeholder="Enter your email"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
               )}
             </div>
           </div>
@@ -79,67 +89,82 @@ const RegisterForm: React.FC = () => {
           {/* Phone Number and Password (Side by Side on Large Devices) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="phoneNumber"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Phone Number
               </label>
               <input
                 id="phoneNumber"
                 type="text"
-                {...register('phoneNumber', {
-                  required: 'Phone number is required',
+                {...register("phoneNumber", {
+                  required: "Phone number is required",
                   pattern: {
                     value: /^[0-9]{10}$/,
-                    message: 'Phone number must be 10 digits',
+                    message: "Phone number must be 10 digits",
                   },
                 })}
                 placeholder="Enter your phone number"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
               {errors.phoneNumber && (
-                <p className="text-red-500 text-sm mt-1">{errors.phoneNumber.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.phoneNumber.message}
+                </p>
               )}
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Password
               </label>
               <input
                 id="password"
                 type="password"
-                {...register('password', {
-                  required: 'Password is required',
+                {...register("password", {
+                  required: "Password is required",
                   minLength: {
                     value: 6,
-                    message: 'Password must be at least 6 characters',
+                    message: "Password must be at least 6 characters",
                   },
                 })}
                 placeholder="Enter your password"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
               {errors.password && (
-                <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.password.message}
+                </p>
               )}
             </div>
           </div>
 
           {/* Confirm Password (Full Width) */}
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="confirmPassword"
+              className="block text-sm font-medium text-gray-700"
+            >
               Confirm Password
             </label>
             <input
               id="confirmPassword"
               type="password"
-              {...register('confirmPassword', {
-                required: 'Please confirm your password',
+              {...register("confirmPassword", {
+                required: "Please confirm your password",
                 validate: (value) =>
-                  value === password || 'Passwords do not match',
+                  value === password || "Passwords do not match",
               })}
               placeholder="Confirm your password"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
             {errors.confirmPassword && (
-              <p className="text-red-500 text-sm mt-1">{errors.confirmPassword.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.confirmPassword.message}
+              </p>
             )}
           </div>
 
@@ -155,10 +180,10 @@ const RegisterForm: React.FC = () => {
 
           {/* Login Link */}
           <p className="text-center text-sm text-gray-600">
-            Already have an account?{' '}
+            Already have an account?{" "}
             <a
               href="/login"
-              className="font-medium bg-gradient-to-r from-purple-600 to-purple-700 hover:text-purple-500"
+              className="font-medium  text-purple-600 hover:text-purple-500"
             >
               Login here
             </a>

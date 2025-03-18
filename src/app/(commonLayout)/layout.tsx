@@ -1,20 +1,15 @@
-import Footer from "@/components/shered/Footer"
-import Navbar from "@/components/shered/Navbar"
-import { ReactNode } from "react"
+import Footer from "@/components/shered/Footer";
+import Navbar from "@/components/shered/Navbar";
+import { ReactNode } from "react";
 
-
-const layout = ({children}:{children:ReactNode}) => {
+const layout = ({ children }: { children: ReactNode }) => {
   return (
     <div>
-        <Navbar/>
-        <div className="min-h-screen">
-
-      {children}
-
-        </div>
-        <Footer />
+      <Navbar />
+      <div className="min-h-screen">{children}</div>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default layout
+export default layout;
